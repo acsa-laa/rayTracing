@@ -37,9 +37,6 @@ class vec3 {
 	}
 };
 
-typedef vec3 Point3;
-typedef vec3 Color;
-
 //=== Operators
 vec3 operator+(const vec3 &v1, const vec3 &v2){ 
 	return vec3(v1.c[0] + v2.c[0], v1.c[1] + v2.c[1], v1.c[2] + v2.c[2]); 
