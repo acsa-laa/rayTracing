@@ -1,75 +1,100 @@
-#ifndef PARSER_H
-#define PARSER_H 1
 
-/*!
- * Implementation of XML processing functions.
- * @file parser.cpp
- */
+#ifndef PARCER_H
+#define PARCER_H
 
-#include <tinyxml2.h>
-#include <iostream>
-using std::endl;
-using std::clog;
-using std::cerr;
-using std::cout;
-using std::boolalpha;
-#include <iomanip>
-using std::setw;
 #include <string>
-using std::string;
-#include <memory>
-using std::make_unique;
-using std::make_shared;
-using std::shared_ptr;
-using std::unique_ptr;
-#include <algorithm>
-using std::copy;
-#include <sstream>
-using std::stringstream;
-#include <iterator>
-using std::istream_iterator;
-using std::begin;
-using std::endl;
-#include <vector>
-using std::vector;
-#include <utility>
-using std::pair;
-#include <optional>
-using std::optional;
+#include "tinyxml2.h"
 
-#include "paramset.h"
-#include "error.h"
+struct RunningOptions{
+    std::string cameraType;
+    std::string filmType;
+    std::string filmX_res;
+    std::string filmY_res;
+    std::string filmFilename;
+    std::string filmImgtype;
+    std::string backgroundType;
+    std::string backgroundMapping;
+    std::string backgroundColor;
+    std::string backgroundBl;
+    std::string backgroundBr;
+    std::string backgroundTl;
+    std::string backgroundTr;
+} RunningOptions;
 
-namespace rt3 {
+class Parser{
+public:
+    static struct RunningOptions parse(int argc, char* argv[]){
+        if(argc < 2 or argc > 8){
+            throw std::exception();
+        }else{
+            struct RunningOptions ro;
+            switch(argc){
+                case 2:
+                    if(strcmp(argv[1],"--help") == 0 or strcmp(argv[1],"--quick") == 0 or strcmp(argv[1],"--cropWindow") == 0 or strcmp(argv[1], "--outfile") == 0){
+                        throw std::exception();
+                    }else{
+                        tinyxml2::XMLDocument doc;
+                        doc.LoadFile(argv[1]);
+                        auto RT3 = doc.RootElement();
 
-    // === Enumerations
-    /// Type of possible paramter types we may read from the input scene file.
-    enum class param_type_e : int { BOOL=0,
-        INT,           //!< Single integet
-        UINT,          //!< Single unsigned int
-        REAL,          //!< Single real number
-        VEC3F,         //!< Single Vector3f
-        VEC3I,         //!< Single Vector3i
-        NORMAL3F,      //!< Single Normal3f
-        POINT3F,       //!< Single Point3f
-        POINT2I,       //!< Single Point2i
-        COLOR,         //!< Single Color
-        SPECTRUM,      //!< Single Spectrum
-        STRING,        //!< Single string
-        ARR_INT,       //!< An array of integers
-        ARR_REAL,      //!< An array of real numbers
-        ARR_VEC3F,     //!< An array of Vector3f
-        ARR_VEC3I,     //!< An array of Vector3i
-        ARR_POINT3F,   //!< An array of Point3f
-        ARR_COLOR,     //!< An array of Color
-        ARR_NORMAL3F   //!< An array of Normal3f
-    };
-    // === parsing functions.
-    void parse( const char* );
-    void parse_tags(  tinyxml2::XMLElement *, int );
-    void parse_parameters( tinyxml2::XMLElement *p_element, const vector<std::pair<param_type_e, string>>param_list, ParamSet *ps_out );
+                        ro.cameraType = RT3->FirstChildElement("camera")->Attribute("type");
 
-    //-------------------------------------------------------------------------------
-} // namespace RT3
+                        ro.filmType = RT3->FirstChildElement("film")->Attribute("type");
+                        ro.filmX_res = RT3->FirstChildElement("film")->Attribute("x_res");
+                        ro.filmY_res = RT3->FirstChildElement("film")->Attribute("y_res");
+                        ro.filmFilename = RT3->FirstChildElement("film")->Attribute("filename");
+                        ro.filmImgtype = RT3->FirstChildElement("film")->Attribute("img_type");
 
-#endif // PARSER_H
+                        auto background = RT3->FirstChildElement("background");
+                        ro.backgroundType = background->Attribute("type");
+                        ro.backgroundMapping = background->Attribute("mapping");
+                        if(background->Attribute("color")){
+                            ro.backgroundColor = background->Attribute("color");
+                            ro.backgroundBl = background->Attribute("color");
+                            ro.backgroundBr = background->Attribute("color");
+                            ro.backgroundTl = background->Attribute("color");
+                            ro.backgroundTr = background->Attribute("color");
+                        }else {
+                            ro.backgroundBl = background->Attribute("bl");
+                            ro.backgroundBr = background->Attribute("br");
+                            ro.backgroundTl = background->Attribute("tl");
+                            ro.backgroundTr = background->Attribute("tr");
+                        }
+                        return ro;
+                    }
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    break;
+                case 8:
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    static void toString(const struct RunningOptions& ro){
+        std::cout << "cameraType;" << ro.cameraType << "\n" <<
+                     "filmType;\n" << ro.filmType << "\n" <<
+                     "filmX_res;\n"<< ro.filmX_res << "\n" <<
+                     "filmY_res;\n"<< ro.filmY_res << "\n" <<
+                     "filmFilename;\n"<< ro.filmFilename << "\n" <<
+                     "filmImgtype;\n"<< ro.filmImgtype << "\n" <<
+                     "backgroundType;\n"<< ro.backgroundType << "\n" <<
+                     "backgroundMapping;\n"<< ro.backgroundMapping << "\n" <<
+                     "backgroundColor;\n"<< ro.backgroundColor << "\n" <<
+                     "backgroundBl;\n"<< ro.backgroundBl << "\n" <<
+                     "backgroundBr;\n"<< ro.backgroundBr << "\n" <<
+                     "backgroundTl;\n"<< ro.backgroundTl << "\n" <<
+                     "backgroundTr;"<< ro.backgroundTr << "\n" << std::endl;
+    }
+};
+
+#endif //PARCER_H
