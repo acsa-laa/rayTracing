@@ -1,9 +1,9 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include "color.hpp"
+#include "color.h"
 #include "film.h"
-#include "ray.hpp"
+#include "ray.h"
 
 
 

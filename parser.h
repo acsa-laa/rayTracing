@@ -3,6 +3,7 @@
 #define PARCER_H
 
 #include <string>
+#include <iostream>
 #include "tinyxml2.h"
 
 struct RunningOptions{

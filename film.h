@@ -6,8 +6,8 @@
 #define RAYTRACING_FILM_H
 
 #include <fstream>
-#include "color.hpp"
-#include "ray.hpp"
+#include "color.h"
+#include "ray.h"
 
 class film{
 public:
