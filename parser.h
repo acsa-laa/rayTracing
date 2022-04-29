@@ -6,21 +6,12 @@
 #include <iostream>
 #include "tinyxml2.h"
 
-struct RunningOptions{
+struct ReadXML{
     std::string cameraType;
-    std::string filmType;
-    std::string filmX_res;
-    std::string filmY_res;
-    std::string filmFilename;
-    std::string filmImgtype;
-    std::string backgroundType;
-    std::string backgroundMapping;
-    std::string backgroundColor;
-    std::string backgroundBl;
-    std::string backgroundBr;
-    std::string backgroundTl;
-    std::string backgroundTr;
-} RunningOptions;
+    //lista std::string film(Type, X_res, Y_res, Filename,Imgtype);
+    //lista std::string background(Type, Mapping, Color, Bl, Br, Tl, Tr);
+    std::string background
+} ReadXML;
 
 class Parser{
 public:
@@ -40,41 +31,16 @@ public:
 
                         ro.cameraType = RT3->FirstChildElement("camera")->Attribute("type");
 
-                        ro.filmType = RT3->FirstChildElement("film")->Attribute("type");
-                        ro.filmX_res = RT3->FirstChildElement("film")->Attribute("x_res");
-                        ro.filmY_res = RT3->FirstChildElement("film")->Attribute("y_res");
-                        ro.filmFilename = RT3->FirstChildElement("film")->Attribute("filename");
-                        ro.filmImgtype = RT3->FirstChildElement("film")->Attribute("img_type");
-
                         auto background = RT3->FirstChildElement("background");
-                        ro.backgroundType = background->Attribute("type");
-                        ro.backgroundMapping = background->Attribute("mapping");
+                        
                         if(background->Attribute("color")){
-                            ro.backgroundColor = background->Attribute("color");
-                            ro.backgroundBl = background->Attribute("color");
-                            ro.backgroundBr = background->Attribute("color");
-                            ro.backgroundTl = background->Attribute("color");
-                            ro.backgroundTr = background->Attribute("color");
+                            //ro.background[2] = background->Attribute("color");
+                            
                         }else {
-                            ro.backgroundBl = background->Attribute("bl");
-                            ro.backgroundBr = background->Attribute("br");
-                            ro.backgroundTl = background->Attribute("tl");
-                            ro.backgroundTr = background->Attribute("tr");
+                            //ro.background[3] = background->Attribute("bl");
                         }
                         return ro;
                     }
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
-                    break;
-                case 8:
-                    break;
                 default:
                     break;
             }
@@ -82,19 +48,7 @@ public:
     }
 
     static void toString(const struct RunningOptions& ro){
-        std::cout << "cameraType;" << ro.cameraType << "\n" <<
-                     "filmType;\n" << ro.filmType << "\n" <<
-                     "filmX_res;\n"<< ro.filmX_res << "\n" <<
-                     "filmY_res;\n"<< ro.filmY_res << "\n" <<
-                     "filmFilename;\n"<< ro.filmFilename << "\n" <<
-                     "filmImgtype;\n"<< ro.filmImgtype << "\n" <<
-                     "backgroundType;\n"<< ro.backgroundType << "\n" <<
-                     "backgroundMapping;\n"<< ro.backgroundMapping << "\n" <<
-                     "backgroundColor;\n"<< ro.backgroundColor << "\n" <<
-                     "backgroundBl;\n"<< ro.backgroundBl << "\n" <<
-                     "backgroundBr;\n"<< ro.backgroundBr << "\n" <<
-                     "backgroundTl;\n"<< ro.backgroundTl << "\n" <<
-                     "backgroundTr;"<< ro.backgroundTr << "\n" << std::endl;
+        std::cout << "cameraType;" << ro.cameraType << "\n" << std::endl;
     }
 };
 
