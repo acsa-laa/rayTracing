@@ -10,16 +10,16 @@ struct ReadXML{
     std::string cameraType;
     //lista std::string film(Type, X_res, Y_res, Filename,Imgtype);
     //lista std::string background(Type, Mapping, Color, Bl, Br, Tl, Tr);
-    std::string background
+    std::string background;
 } ReadXML;
 
 class Parser{
 public:
-    static struct RunningOptions parse(int argc, char* argv[]){
+    static struct ReadXML parse(int argc, char* argv[]){
         if(argc < 2 or argc > 8){
             throw std::exception();
         }else{
-            struct RunningOptions ro;
+            struct ReadXML ro;
             switch(argc){
                 case 2:
                     if(strcmp(argv[1],"--help") == 0 or strcmp(argv[1],"--quick") == 0 or strcmp(argv[1],"--cropWindow") == 0 or strcmp(argv[1], "--outfile") == 0){
@@ -47,7 +47,7 @@ public:
         }
     }
 
-    static void toString(const struct RunningOptions& ro){
+    static void toString(const struct ReadXML& ro){
         std::cout << "cameraType;" << ro.cameraType << "\n" << std::endl;
     }
 };
