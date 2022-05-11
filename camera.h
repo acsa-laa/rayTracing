@@ -11,6 +11,7 @@
 
 class camera {
 private:
+    std::string type;
     double aspect_ratio;
     double viewport_height;
     double viewport_width;
@@ -20,14 +21,16 @@ private:
     vec3 horizontal;
     vec3 vertical;
     vec3 lower_left_corner;
+public:
+    camera(const std::string &type, double aspectRatio, double viewportHeight, double viewportWidth, double focalLength,
+           const point3 &origin, const vec3 &horizontal, const vec3 &vertical, const vec3 &lowerLeftCorner,
+           const film &film);
+
+private:
 
     film film;
 public:
-    camera(double aspect_ratio, double viewportHeight, double viewportWidth, double focalLength, const point3 &origin, const vec3 &horizontal,
-           const vec3 &vertical, const vec3 &lowerLeftCorner);
 
-    camera(double aspectRatio, double viewportHeight, double viewportWidth, double focalLength, const point3 &origin,
-           const vec3 &horizontal, const vec3 &vertical, const vec3 &lowerLeftCorner, const class film &film);
 
     const class film &getFilm() const;
 

@@ -36,6 +36,7 @@ distribution.
 #   include <cstring>
 #endif
 #include <stdint.h>
+#include <string>
 
 /*
    TODO: intern strings instead of allocation.
@@ -1712,7 +1713,7 @@ namespace tinyxml2
             Returns XML_SUCCESS (0) on success, or
             an errorID.
         */
-        XMLError LoadFile( FILE* );
+        std::basic_string<char> LoadFile( FILE* );
 
         /**
             Save the XML file to disk.
