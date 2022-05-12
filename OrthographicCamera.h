@@ -9,7 +9,9 @@
 #include "camera.h"
 
 class OrthographicCamera : public camera {
-
+public:
+    OrthographicCamera(double aspect_ratio, double viewport_height,double viewport_width,double focal_length );
+    ray generateRay(double u, double v) const override ;
 };
 
 
