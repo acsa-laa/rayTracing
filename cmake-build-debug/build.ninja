@@ -73,6 +73,18 @@ build CMakeFiles/rayTracing.dir/parser.cpp.obj: CXX_COMPILER__rayTracing_Debug C
   OBJECT_DIR = CMakeFiles\rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles\rayTracing.dir
 
+build CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.obj: CXX_COMPILER__rayTracing_Debug C$:/Users/70386312419/Documents/GitHub/rayTracing/PerspectiveCamera.cpp || cmake_object_order_depends_target_rayTracing
+  DEP_FILE = CMakeFiles\rayTracing.dir\PerspectiveCamera.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\rayTracing.dir
+  OBJECT_FILE_DIR = CMakeFiles\rayTracing.dir
+
+build CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.obj: CXX_COMPILER__rayTracing_Debug C$:/Users/70386312419/Documents/GitHub/rayTracing/OrthographicCamera.cpp || cmake_object_order_depends_target_rayTracing
+  DEP_FILE = CMakeFiles\rayTracing.dir\OrthographicCamera.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\rayTracing.dir
+  OBJECT_FILE_DIR = CMakeFiles\rayTracing.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target rayTracing
@@ -81,7 +93,7 @@ build CMakeFiles/rayTracing.dir/parser.cpp.obj: CXX_COMPILER__rayTracing_Debug C
 #############################################
 # Link the executable rayTracing.exe
 
-build rayTracing.exe: CXX_EXECUTABLE_LINKER__rayTracing_Debug CMakeFiles/rayTracing.dir/main.cpp.obj CMakeFiles/rayTracing.dir/tinyxml2.cpp.obj CMakeFiles/rayTracing.dir/camera.cpp.obj CMakeFiles/rayTracing.dir/parser.cpp.obj
+build rayTracing.exe: CXX_EXECUTABLE_LINKER__rayTracing_Debug CMakeFiles/rayTracing.dir/main.cpp.obj CMakeFiles/rayTracing.dir/tinyxml2.cpp.obj CMakeFiles/rayTracing.dir/camera.cpp.obj CMakeFiles/rayTracing.dir/parser.cpp.obj CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.obj CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\rayTracing.dir

@@ -11,12 +11,11 @@ int main(int argc, char* argv[]) {
     const auto aspect_ratio = 16.0 / 9.0;
     const int image_width = 400;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
-    film film(image_width, image_height);
+    //film film(image_width, image_height);
 
     struct RunningOptions ro = Parser::parse();
     //RunningOptions ro = Parser::parse(argc, argv);
-    //film film(std::stoi(ro.filmX_res), std::stoi(ro.filmY_res), ro.filmType, ro.filmFilename, ro.filmImgtype);
-    //film film(image_width, image_height, "ro.filmType", "teste", "1 ");
+    film film(std::stoi(ro.filmX_res), std::stoi(ro.filmY_res), ro.filmType, ro.filmFilename, ro.filmImgtype);
 
 
     // Camera
@@ -29,8 +28,9 @@ int main(int argc, char* argv[]) {
     auto vertical = vec3(0, viewport_height, 0);
     auto lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
 
-    camera cam(aspect_ratio, viewport_height, viewport_width, focal_length, origin, horizontal, vertical, lower_left_corner, film);
-    cam.render(color(1,0,0), color(0,1,0), color(0,0,1), color(1,1,0));
+    camera cam(ro.cameraType, aspect_ratio, viewport_height, viewport_width, focal_length, origin, horizontal, vertical, lower_left_corner, film);
+
+    cam.render();
 
 
 }
