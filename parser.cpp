@@ -4,30 +4,29 @@
 
 #include "parser.h"
 
-struct RunningOptions Parser::parse() {
-    struct RunningOptions ro;
+RunningOptions Parser::parse() {
+    RunningOptions ro;
     tinyxml2::XMLDocument doc;
-    doc.LoadFile("scene_01.xml");
-    auto RT3 = doc.RootElement();
-    if(RT3->FirstChildElement())
+    const char *scene_file_name = "./scene_01.xml";
+    std::cout << scene_file_name << std::endl;
+    if ( doc.LoadFile( scene_file_name ) != tinyxml2::XML_SUCCESS )
+        std::cout<< std::string{"The file "} + scene_file_name + std::string{" either is not available OR contains an invalid RT3 scene provided!"} << std::endl;
 
-    ro.cameraType = RT3->FirstChildElement("camera")->Attribute("type");
+    auto RT3 = doc.RootElement();
+    std::cout << "dhsudhuhdsu";
+    ro.cameraType = RT3->FirstChildElement()->Attribute("type");
 
     ro.filmType = RT3->FirstChildElement("film")->Attribute("type");
-    ro.filmX_res = RT3->FirstChildElement("film")->Attribute("x_res");
     ro.filmY_res = RT3->FirstChildElement("film")->Attribute("y_res");
     ro.filmFilename = RT3->FirstChildElement("film")->Attribute("filename");
     ro.filmImgtype = RT3->FirstChildElement("film")->Attribute("img_type");
+    ro.filmX_res = RT3->FirstChildElement("film")->Attribute("x_res");
 
     auto background = RT3->FirstChildElement("background");
     ro.backgroundType = background->Attribute("type");
     ro.backgroundMapping = background->Attribute("mapping");
     if (background->Attribute("color")) {
         ro.backgroundColor = background->Attribute("color");
-        ro.backgroundBl = background->Attribute("color");
-        ro.backgroundBr = background->Attribute("color");
-        ro.backgroundTl = background->Attribute("color");
-        ro.backgroundTr = background->Attribute("color");
     } else {
         ro.backgroundBl = background->Attribute("bl");
         ro.backgroundBr = background->Attribute("br");
@@ -37,21 +36,4 @@ struct RunningOptions Parser::parse() {
     return ro;
 }
 
-void Parser::toString(const struct RunningOptions &ro) {
-    {
-        std::cout << "cameraType;" << ro.cameraType << "\n" <<
-                  "filmType;\n" << ro.filmType << "\n" <<
-                  "filmX_res;\n"<< ro.filmX_res << "\n" <<
-                  "filmY_res;\n"<< ro.filmY_res << "\n" <<
-                  "filmFilename;\n"<< ro.filmFilename << "\n" <<
-                  "filmImgtype;\n"<< ro.filmImgtype << "\n" <<
-                  "backgroundType;\n"<< ro.backgroundType << "\n" <<
-                  "backgroundMapping;\n"<< ro.backgroundMapping << "\n" <<
-                  "backgroundColor;\n"<< ro.backgroundColor << "\n" <<
-                  "backgroundBl;\n"<< ro.backgroundBl << "\n" <<
-                  "backgroundBr;\n"<< ro.backgroundBr << "\n" <<
-                  "backgroundTl;\n"<< ro.backgroundTl << "\n" <<
-                  "backgroundTr;"<< ro.backgroundTr << "\n" << std::endl;
-    }
-}
 

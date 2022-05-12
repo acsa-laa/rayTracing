@@ -2331,7 +2331,7 @@ namespace tinyxml2
         return _errorID;
     }
 
-    XMLError XMLDocument::LoadFile( FILE* fp )
+    std::basic_string<char> XMLDocument::LoadFile(FILE* fp )
     {
         Clear();
 
