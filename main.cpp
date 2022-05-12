@@ -1,9 +1,10 @@
 #include "film.h"
 #include "vec3.h"
 #include "camera.h"
+#include "parser.h"
 
 
-int main() {
+int main(int argc, char* argv[]) {
 
     // Film
 
@@ -11,6 +12,12 @@ int main() {
     const int image_width = 400;
     const int image_height = static_cast<int>(image_width / aspect_ratio);
     film film(image_width, image_height);
+
+    struct RunningOptions ro = Parser::parse();
+    //RunningOptions ro = Parser::parse(argc, argv);
+    //film film(std::stoi(ro.filmX_res), std::stoi(ro.filmY_res), ro.filmType, ro.filmFilename, ro.filmImgtype);
+    //film film(image_width, image_height, "ro.filmType", "teste", "1 ");
+
 
     // Camera
     auto viewport_height = 2.0;
