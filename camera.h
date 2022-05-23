@@ -1,8 +1,6 @@
 #ifndef RAYTRACING_CAMERA_H
 #define RAYTRACING_CAMERA_H
 
-
-#include "vec3.h"
 #include "film.h"
 #include "ray.h"
 class camera {
@@ -13,7 +11,6 @@ public:
         this->viewport_height = viewport_height;
         this->viewport_width = viewport_width;
         this->focal_length = focal_length;
-
 
         origin = point3(0, 0, 0);
         horizontal = vec3(viewport_width, 0.0, 0.0);

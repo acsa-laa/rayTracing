@@ -1,5 +1,4 @@
 #include "camera.h"
-#include "ray.h"
 
 ray camera::generateRay(double u, double v) const {
     return ray();
