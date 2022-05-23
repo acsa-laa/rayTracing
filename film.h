@@ -6,43 +6,60 @@
 #define RAYTRACING_FILM_H
 
 #include <fstream>
-#include "color.h"
-#include "ray.h"
 
 class film{
-public:
+private:
     int image_width;
     int image_height;
+    std::string type;
+    std::string filename;
+    std::string img_type;
+public:
+    film(int imageWidth, int imageHeight, const std::string &type, const std::string &filename,
+         const std::string &imgType) : image_width(imageWidth), image_height(imageHeight), type(type),
+                                       filename(filename), img_type(imgType) {}
 
-    film(int imageWidth, int imageHeight) : image_width(imageWidth), image_height(imageHeight) {}
+public:
+    const std::string &getType() const {
+        return type;
+    }
 
-    virtual ~film() = default;
+    void setType(const std::string &type) {
+        film::type = type;
+    }
 
-    void render(double aspect_ratio ) const{
-        std::string filename="output-image.ppm";
-        std::fstream fs (filename, std::fstream::out);
-        if (!fs)
-            std::cout << "Error loading file\n";
+    const std::string &getFilename() const {
+        return filename;
+    }
 
-        fs << "P3\n" << image_width << " " << image_height << "\n" << "255\n" ;
+    void setFilename(const std::string &filename) {
+        film::filename = filename;
+    }
 
-        auto viewport_height = 2.0;
-        auto viewport_width = aspect_ratio * viewport_height;
-        auto focal_length = 1.0;
-        auto origin = point3(0, 0, 0);
-        auto horizontal = vec3(viewport_width, 0, 0);
-        auto vertical = vec3(0, viewport_height, 0);
-        auto lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
+    const std::string &getImgType() const {
+        return img_type;
+    }
 
-        for (int j = image_height-1; j >= 0; --j) {
-            for (int i = 0; i < image_width; ++i) {
-                auto u = double(i) / (image_width-1);
-                auto v = double(j) / (image_height-1);
-                ray r(origin, lower_left_corner + u*horizontal + v*vertical - origin);
-                color pixel_color = ray::ray_color(r, color(1,0,0), color(0, 1, 0), color(0,0,1), color(1, 1, 0));
-                write_color(fs, pixel_color);
-            }
-        }
+    void setImgType(const std::string &imgType) {
+        img_type = imgType;
+    }
+
+public:
+
+    int getImageWidth() const {
+        return image_width;
+    }
+
+    void setImageWidth(int imageWidth) {
+        image_width = imageWidth;
+    }
+
+    int getImageHeight() const {
+        return image_height;
+    }
+
+    void setImageHeight(int imageHeight) {
+        image_height = imageHeight;
     }
 };
 

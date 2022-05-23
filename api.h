@@ -3,8 +3,8 @@
 
 #include <string>
 #include <chrono>
-#include "rt3-base.h"
-#include "triangle.h"
+//#include "rt3-base.h"
+//#include "triangle.h"
 
 //=== API Macro definitions
 
@@ -69,7 +69,7 @@ namespace rt3 {
 
         vector<ParamSet> lights;
 
-        map<string, ParamSet> named_materials;
+        std::map<string, ParamSet> named_materials;
     };
 
     /// Collection of data related to a Graphics state, such as current material, lib of material, etc.
