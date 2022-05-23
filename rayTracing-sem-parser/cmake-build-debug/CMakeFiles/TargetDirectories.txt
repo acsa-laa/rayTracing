@@ -1,0 +1,3 @@
+/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug/CMakeFiles/rayTracing.dir
+/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug/CMakeFiles/rebuild_cache.dir
