@@ -42,7 +42,7 @@ rule CUSTOM_COMMAND
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /snap/clion/190/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser -B/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug
+  command = /snap/clion/190/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/acsa/Documentos/disciplinas/CG/rayTracing -B/home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

@@ -4,10 +4,15 @@
 
 #include "sphere.h"
 
+Sphere::Sphere(point3 center, double radius, color col){
+    this->center = center;
+    this->radius = radius;
+    this->col = col;
+}
+
 const point3 Sphere::getCenter() const {
     return this->center;
 }
-
 void Sphere::setCenter(const point3 &center_) {
     this->center = center_;
 }

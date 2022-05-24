@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug/
+cmake_ninja_workdir = /home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug/
 # =============================================================================
 # Object build statements for EXECUTABLE target rayTracing
 
@@ -49,43 +49,43 @@ cmake_ninja_workdir = /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser
 
 build cmake_object_order_depends_target_rayTracing: phony || CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/main.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/main.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/main.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/main.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/main.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/tinyxml2.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/tinyxml2.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/tinyxml2.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/tinyxml2.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/tinyxml2.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/camera.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/camera.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/camera.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/camera.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/camera.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/parser.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/parser.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/parser.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/parser.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/parser.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/PerspectiveCamera.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/PerspectiveCamera.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/OrthographicCamera.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/OrthographicCamera.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
-build CMakeFiles/rayTracing.dir/sphere.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/sphere.cpp || cmake_object_order_depends_target_rayTracing
+build CMakeFiles/rayTracing.dir/sphere.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/sphere.cpp || cmake_object_order_depends_target_rayTracing
   DEP_FILE = CMakeFiles/rayTracing.dir/sphere.cpp.o.d
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
@@ -112,7 +112,7 @@ build rayTracing: CXX_EXECUTABLE_LINKER__rayTracing_Debug CMakeFiles/rayTracing.
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug && /snap/clion/190/bin/cmake/linux/bin/ccmake -S/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser -B/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug
+  COMMAND = cd /home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug && /snap/clion/190/bin/cmake/linux/bin/ccmake -S/home/acsa/Documentos/disciplinas/CG/rayTracing -B/home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug
   DESC = Running CMake cache editor...
   pool = console
   restat = 1
@@ -124,7 +124,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug && /snap/clion/190/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser -B/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug
+  COMMAND = cd /home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug && /snap/clion/190/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/acsa/Documentos/disciplinas/CG/rayTracing -B/home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -140,7 +140,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 
 #############################################
-# Folder: /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug
+# Folder: /home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug
 
 build all: phony rayTracing
 

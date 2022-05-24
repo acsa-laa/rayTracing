@@ -9,16 +9,23 @@
 #include "tinyxml2.h"
 #include "primitive.h"
 #include <iostream>
+#include <vector>
 
 struct RunningOptions{
+    bool  help = false;
     std::string cameraType;
+    int fovy = 1;
+    std::vector<int> screen_window{1,1,1,1};
+    std::string materialType = "flat";
+    color materialColor = color(0,0,0);
+    std::vector<Primitive*> objects;
     std::string filmType;
     int filmX_res = 0;
     int filmY_res = 0;
     std::string filmFilename;
     std::string filmImgtype;
-    std::string backgroundType;
-    std::string backgroundMapping;
+    std::string backgroundType = "color";
+    std::string backgroundMapping = "screen";
     color backgroundColor = color(0,0,0);
     color backgroundBl = color(0,0,0);
     color backgroundBr = color(0,0,0);

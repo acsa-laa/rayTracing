@@ -9,9 +9,11 @@
 #include "camera.h"
 
 class PerspectiveCamera : public camera{
-    ray generateRay(double u, double v) const override {
-        //return ray(origin, lower_left_corner + u*horizontal + v*vertical - origin);
-    }
+
+public:
+    PerspectiveCamera(double aspect_ratio, double viewport_height,double viewport_width,double focal_length );
+
+    ray generateRay(double u, double v) const override;
 };
 
 

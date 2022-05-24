@@ -1,4 +1,4 @@
-# Install script for directory: /home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser
+# Install script for directory: /home/acsa/Documentos/disciplinas/CG/rayTracing
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/acsa/Documentos/disciplinas/CG/rayTracing-sem-parser/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

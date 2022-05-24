@@ -5,20 +5,17 @@
 #ifndef RAYTRACING_SPHERE_H
 #define RAYTRACING_SPHERE_H
 
+#include <iostream>
 #include "primitive.h"
 
 class Sphere : public Primitive{
 private:
     point3 center;
     double radius;
-    color col;
 public:
 
-    Sphere(point3 center, double radius, color col){
-        this->center = center;
-        this->radius = radius;
-        this->col = col;
-    }
+    Sphere(point3 center, double radius, color col);
+
     const point3 getCenter() const ;
 
     void setCenter(const point3 &center_) ;

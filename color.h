@@ -19,7 +19,7 @@ static color ray_color(const ray &r){
     return (1.0-t)*color(1.0, 1.0, 1.0) + t*color(0.5, 0.7, 1.0);
 };
 
-static color ray_color(const ray &r, const std::vector<Primitive*>& shapes, color tr, color tl, color br, color bl) {
+static color ray_color(const ray &r, const std::vector<Primitive*> shapes, color tr, color tl, color br, color bl) {
     for (auto shape: shapes) {
         if (shape->intersects(r)) {
             return shape->getColor();
@@ -33,14 +33,6 @@ static color ray_color(const ray &r, const std::vector<Primitive*>& shapes, colo
     auto h = 0.5*(unit_direction.x() + 1.0);
     return (1.0-h)*c1 + h*c2;
 };
-bool hit_sphere(const point3& center, double radius, const ray& r) {
-    vec3 oc = r.origin() - center;
-    auto a = dot(r.direction(), r.direction());
-    auto b = 2.0 * dot(oc, r.direction());
-    auto c = dot(oc, oc) - radius*radius;
-    auto discriminant = b*b - 4*a*c;
-    return (discriminant > 0);
-}
 
 void write_color(std::ostream &out, color pixel_color) {
     // Write the translated [0,255] value of each color component.
