@@ -6,20 +6,37 @@
 #define RAYTRACING_PRIMITIVE_H
 
 #include "ray.h"
+#include "material.h"
 
 class Primitive{
 protected:
-    color col;
+    Material material;
+    Integrator* integrator;
 public:
-    virtual bool intersects(const ray& ray) = 0;
+    virtual double intersects(const ray& ray) = 0;
 
-    color getColor(){
-        return this->col;
-    }
-    void setColor(const color& col_){
-        this->col = col_;
+    Integrator *getIntegrator() const {
+        return integrator;
     }
 
+    void setIntegrator(Integrator *integrator) {
+        Primitive::integrator = integrator;
+    }
+
+    const Material getMaterial() const {
+        return material;
+    }
+
+    void setMaterial(const Material &material) {
+        Primitive::material = material;
+    }
+    virtual color getColor(){
+        return this->material.getCol();
+    }
+
+    virtual void setColor(const color& col_){
+        this->material.setCol(col_);
+    }
 };
 
 #endif //RAYTRACING_PRIMITIVE_H

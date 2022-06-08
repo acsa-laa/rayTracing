@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include "primitive.h"
+#include "integrator.h"
 
 class Sphere : public Primitive{
 private:
@@ -16,6 +17,8 @@ public:
 
     Sphere(point3 center, double radius, color col);
 
+    Sphere(point3 center, double radius, Integrator* integrator);
+
     const point3 getCenter() const ;
 
     void setCenter(const point3 &center_) ;
@@ -24,7 +27,10 @@ public:
 
     void setRadius(double radius_);
 
-    bool intersects(const ray& r) override;
+    virtual double intersects(const ray& r) override;
 
+    virtual color getColor() override;
+
+    virtual void setColor(const color &col_) override;
 };
 #endif //RAYTRACING_SPHERE_H

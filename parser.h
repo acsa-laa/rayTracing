@@ -16,8 +16,6 @@ struct RunningOptions{
     std::string cameraType;
     int fovy = 1;
     std::vector<int> screen_window{1,1,1,1};
-    std::string materialType = "flat";
-    color materialColor = color(0,0,0);
     std::vector<Primitive*> objects;
     std::string filmType;
     int filmX_res = 0;
