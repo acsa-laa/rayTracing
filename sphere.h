@@ -15,7 +15,7 @@ private:
     double radius;
 public:
 
-    Sphere(point3 center, double radius, color col);
+    //Sphere(point3 center, double radius, color col);
 
     Sphere(point3 center, double radius, Integrator* integrator);
 

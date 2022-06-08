@@ -3,7 +3,7 @@
 2664	3729	1654647734805243874	CMakeFiles/rayTracing.dir/sphere.cpp.o	1e010359fcd17f29
 455	655	6740902794707008	rayTracing.exe	d9a738f6d2e321cd
 1	2662	1654647733737210245	CMakeFiles/rayTracing.dir/main.cpp.o	3b35775de2c04365
-0	61	1654653678389508307	build.ninja	1615de2ce734fd08
+0	61	1654655963062479314	build.ninja	1615de2ce734fd08
 2	920	1654647732001155604	CMakeFiles/rayTracing.dir/camera.cpp.o	58e6ba29a4f01bec
 2908	4024	1654647735101253196	CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.o	4cec26a75db1f18f
 2973	4068	1654647735145254582	CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.o	f6f36635ff2dded9

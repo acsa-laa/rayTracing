@@ -115,6 +115,12 @@ build CMakeFiles/rayTracing.dir/normalIntegrator.cpp.o: CXX_COMPILER__rayTracing
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
 
+build CMakeFiles/rayTracing.dir/Integrator.cpp.o: CXX_COMPILER__rayTracing_Debug /home/acsa/Documentos/disciplinas/CG/rayTracing/Integrator.cpp || cmake_object_order_depends_target_rayTracing
+  DEP_FILE = CMakeFiles/rayTracing.dir/Integrator.cpp.o.d
+  FLAGS = -g
+  OBJECT_DIR = CMakeFiles/rayTracing.dir
+  OBJECT_FILE_DIR = CMakeFiles/rayTracing.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target rayTracing
@@ -123,7 +129,7 @@ build CMakeFiles/rayTracing.dir/normalIntegrator.cpp.o: CXX_COMPILER__rayTracing
 #############################################
 # Link the executable rayTracing
 
-build rayTracing: CXX_EXECUTABLE_LINKER__rayTracing_Debug CMakeFiles/rayTracing.dir/main.cpp.o CMakeFiles/rayTracing.dir/tinyxml2.cpp.o CMakeFiles/rayTracing.dir/camera.cpp.o CMakeFiles/rayTracing.dir/parser.cpp.o CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.o CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.o CMakeFiles/rayTracing.dir/sphere.cpp.o CMakeFiles/rayTracing.dir/material.cpp.o CMakeFiles/rayTracing.dir/flatIntegrator.cpp.o CMakeFiles/rayTracing.dir/dephMathIntegrator.cpp.o CMakeFiles/rayTracing.dir/normalIntegrator.cpp.o
+build rayTracing: CXX_EXECUTABLE_LINKER__rayTracing_Debug CMakeFiles/rayTracing.dir/main.cpp.o CMakeFiles/rayTracing.dir/tinyxml2.cpp.o CMakeFiles/rayTracing.dir/camera.cpp.o CMakeFiles/rayTracing.dir/parser.cpp.o CMakeFiles/rayTracing.dir/PerspectiveCamera.cpp.o CMakeFiles/rayTracing.dir/OrthographicCamera.cpp.o CMakeFiles/rayTracing.dir/sphere.cpp.o CMakeFiles/rayTracing.dir/material.cpp.o CMakeFiles/rayTracing.dir/flatIntegrator.cpp.o CMakeFiles/rayTracing.dir/dephMathIntegrator.cpp.o CMakeFiles/rayTracing.dir/normalIntegrator.cpp.o CMakeFiles/rayTracing.dir/Integrator.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/rayTracing.dir
   POST_BUILD = :

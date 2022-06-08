@@ -9,7 +9,6 @@
 #include "tinyxml2.h"
 #include "primitive.h"
 #include <iostream>
-#include <vector>
 
 struct RunningOptions{
     bool  help = false;
