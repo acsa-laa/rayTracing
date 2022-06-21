@@ -7,13 +7,15 @@
 
 #include <string>
 #include <utility>
-#include "color.h"
+#include "vec3.h"
 
 class Material{
 private:
     std::string type;
     color col;
 public:
+
+    Material(){}
 
     const std::string &getType() const {
         return type;

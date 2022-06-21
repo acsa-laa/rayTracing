@@ -3,11 +3,11 @@
 //
 
 #include "sphere.h"
-
+/*
 Sphere::Sphere(point3 center, double radius, color col){
     this->center = center;
     this->radius = radius;
-}
+}*/
 
 Sphere::Sphere(point3 center, double radius, Integrator* integrator){
     this->center = center;

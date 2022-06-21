@@ -7,6 +7,7 @@
 
 #include "ray.h"
 #include "material.h"
+#include "Integrator.h"
 
 class Primitive{
 protected:

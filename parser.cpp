@@ -5,7 +5,6 @@
 #include <vector>
 #include "parser.h"
 #include "sphere.h"
-#include "integrator.h"
 #include "flatIntegrator.h"
 #include "dephMathIntegrator.h"
 #include "normalIntegrator.h"
@@ -190,7 +189,7 @@ struct RunningOptions Parser::parse() {
                                           << std::endl;
                             }
                             auto* s = new Sphere(center,radius,integrator);
-                            s->setMaterial(material);
+                            s->setMaterial(*material);
                             ro.objects.push_back(s);
                         }
                         object = object->NextSiblingElement();
