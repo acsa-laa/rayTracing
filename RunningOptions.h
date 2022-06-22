@@ -6,126 +6,28 @@
 #define RAYTRACING_RUNNINGOPTIONS_H
 
 #include <iostream>
+#include <vector>
+#include "primitive.h"
 
-class RunningOptions{
-public:
+struct RunningOptions{
+    bool  help = false;
     std::string cameraType;
+    int fovy = 1;
+    std::vector<int> screen_window{1,1,1,1};
+    std::vector<Primitive*> objects;
     std::string filmType;
-    std::string filmX_res;
-    std::string filmY_res;
+    int filmX_res = 0;
+    int filmY_res = 0;
     std::string filmFilename;
     std::string filmImgtype;
-    std::string backgroundType;
-    std::string backgroundMapping;
-    std::string backgroundColor;
-    std::string backgroundBl;
-    std::string backgroundBr;
-    std::string backgroundTl;
-
-    std::string backgroundTr;
-    const std::string &getCameraType() const {
-        return cameraType;
-    }
-
-    void setCameraType(const std::string &cameraType) {
-        RunningOptions::cameraType = cameraType;
-    }
-
-    const std::string &getFilmType() const {
-        return filmType;
-    }
-
-    void setFilmType(const std::string &filmType) {
-        RunningOptions::filmType = filmType;
-    }
-
-    const std::string &getFilmXRes() const {
-        return filmX_res;
-    }
-
-    void setFilmXRes(const std::string &filmXRes) {
-        filmX_res = filmXRes;
-    }
-
-    const std::string &getFilmYRes() const {
-        return filmY_res;
-    }
-
-    void setFilmYRes(const std::string &filmYRes) {
-        filmY_res = filmYRes;
-    }
-
-    const std::string &getFilmFilename() const {
-        return filmFilename;
-    }
-
-    void setFilmFilename(const std::string &filmFilename) {
-        RunningOptions::filmFilename = filmFilename;
-    }
-
-    const std::string &getFilmImgtype() const {
-        return filmImgtype;
-    }
-
-    void setFilmImgtype(const std::string &filmImgtype) {
-        RunningOptions::filmImgtype = filmImgtype;
-    }
-
-    const std::string &getBackgroundType() const {
-        return backgroundType;
-    }
-
-    void setBackgroundType(const std::string &backgroundType) {
-        RunningOptions::backgroundType = backgroundType;
-    }
-
-    const std::string &getBackgroundMapping() const {
-        return backgroundMapping;
-    }
-
-    void setBackgroundMapping(const std::string &backgroundMapping) {
-        RunningOptions::backgroundMapping = backgroundMapping;
-    }
-
-    const std::string &getBackgroundColor() const {
-        return backgroundColor;
-    }
-
-    void setBackgroundColor(const std::string &backgroundColor) {
-        RunningOptions::backgroundColor = backgroundColor;
-    }
-
-    const std::string &getBackgroundBl() const {
-        return backgroundBl;
-    }
-
-    void setBackgroundBl(const std::string &backgroundBl) {
-        RunningOptions::backgroundBl = backgroundBl;
-    }
-
-    const std::string &getBackgroundBr() const {
-        return backgroundBr;
-    }
-
-    void setBackgroundBr(const std::string &backgroundBr) {
-        RunningOptions::backgroundBr = backgroundBr;
-    }
-
-    const std::string &getBackgroundTl() const {
-        return backgroundTl;
-    }
-
-    void setBackgroundTl(const std::string &backgroundTl) {
-        RunningOptions::backgroundTl = backgroundTl;
-    }
-
-    const std::string &getBackgroundTr() const {
-        return backgroundTr;
-    }
-
-    void setBackgroundTr(const std::string &backgroundTr) {
-        RunningOptions::backgroundTr = backgroundTr;
-    }
+    std::string backgroundType = "color";
+    std::string backgroundMapping = "screen";
+    color backgroundColor = color(0,0,0);
+    color backgroundBl = color(0,0,0);
+    color backgroundBr = color(0,0,0);
+    color backgroundTl = color(0,0,0);
+    color backgroundTr = color(0,0,0);
+    std::string integratorType;
 };
 
 #endif //RAYTRACING_RUNNINGOPTIONS_H

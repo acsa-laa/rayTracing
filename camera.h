@@ -5,7 +5,7 @@
 #include "ray.h"
 class camera {
 public:
-    camera(double aspect_ratio, double viewport_height,double viewport_width,double focal_length ) {
+     camera(double aspect_ratio, double viewport_height,double viewport_width,double focal_length ) {
 
         this->aspect_ratio = aspect_ratio;
         this->viewport_height = viewport_height;

@@ -5,7 +5,7 @@
 #ifndef RAYTRACING_PRIMITIVE_H
 #define RAYTRACING_PRIMITIVE_H
 
-#include "ray.h"
+
 #include "material.h"
 #include "Integrator.h"
 

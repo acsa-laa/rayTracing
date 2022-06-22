@@ -6,7 +6,6 @@
 #define RAYTRACING_MATERIAL_H
 
 #include <string>
-#include <utility>
 #include "vec3.h"
 
 class Material{
