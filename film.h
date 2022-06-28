@@ -6,8 +6,9 @@
 #define RAYTRACING_FILM_H
 
 #include <fstream>
+#include "RunningOptions.h"
 
-class film{
+class film {
 private:
     int image_width;
     int image_height;
@@ -18,6 +19,14 @@ public:
     film(int imageWidth, int imageHeight, const std::string &type, const std::string &filename,
          const std::string &imgType) : image_width(imageWidth), image_height(imageHeight), type(type),
                                        filename(filename), img_type(imgType) {}
+
+    film(const RunningOptions& ro){
+        image_width = ro.filmX_res;
+        image_height = ro.filmY_res;
+        type = ro.filmType;
+        filename = ro.filmFilename;
+        img_type = ro.filmImgtype;
+    }
 
 public:
     const std::string &getType() const {

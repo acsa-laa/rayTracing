@@ -4,6 +4,6 @@
 
 #include "normalIntegrator.h"
 
-color ray_color(const ray& r, const struct RunningOptions& ro){
-
+color NormalIntegrator::ray_color(const ray &r, const struct RunningOptions &ro) {
+    return color(0,0,0);
 };

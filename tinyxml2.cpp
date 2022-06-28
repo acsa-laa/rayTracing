@@ -2331,14 +2331,14 @@ namespace tinyxml2
         return _errorID;
     }
 
-    XMLError XMLDocument::LoadFile( FILE* fp )
+    std::basic_string<char> XMLDocument::LoadFile(FILE* fp )
     {
         Clear();
 
         TIXML_FSEEK( fp, 0, SEEK_SET );
         if ( fgetc( fp ) == EOF && ferror( fp ) != 0 ) {
             SetError( XML_ERROR_FILE_READ_ERROR, 0, 0 );
-            return _errorID;
+            return (const char *) _errorID;
         }
 
         TIXML_FSEEK( fp, 0, SEEK_END );
@@ -2349,7 +2349,7 @@ namespace tinyxml2
             TIXML_FSEEK( fp, 0, SEEK_SET );
             if ( fileLengthSigned == -1L ) {
                 SetError( XML_ERROR_FILE_READ_ERROR, 0, 0 );
-                return _errorID;
+                return (const char *) _errorID;
             }
             TIXMLASSERT( fileLengthSigned >= 0 );
             filelength = static_cast<unsigned long long>(fileLengthSigned);
@@ -2361,12 +2361,12 @@ namespace tinyxml2
         if ( filelength >= static_cast<unsigned long long>(maxSizeT) ) {
             // Cannot handle files which won't fit in buffer together with null terminator
             SetError( XML_ERROR_FILE_READ_ERROR, 0, 0 );
-            return _errorID;
+            return (const char *) _errorID;
         }
 
         if ( filelength == 0 ) {
             SetError( XML_ERROR_EMPTY_DOCUMENT, 0, 0 );
-            return _errorID;
+            return (const char *) _errorID;
         }
 
         const size_t size = static_cast<size_t>(filelength);
@@ -2375,13 +2375,13 @@ namespace tinyxml2
         const size_t read = fread( _charBuffer, 1, size, fp );
         if ( read != size ) {
             SetError( XML_ERROR_FILE_READ_ERROR, 0, 0 );
-            return _errorID;
+            return (const char *) _errorID;
         }
 
         _charBuffer[size] = 0;
 
         Parse();
-        return _errorID;
+        return (const char *) _errorID;
     }
 
 

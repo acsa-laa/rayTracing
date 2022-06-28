@@ -4,7 +4,7 @@
 
 #include "dephMathIntegrator.h"
 
-color ray_color(const ray& r, const struct RunningOptions& ro) {
+color DepthMapIntegrator::ray_color(const ray& r, const struct RunningOptions& ro) {
     for(auto shape : ro.objects){
         auto t = shape->intersects(r);
         if (t > 0.0) {
