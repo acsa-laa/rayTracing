@@ -27,10 +27,10 @@ public:
 
     void setRadius(double radius_);
 
-    virtual double intersects(const ray& r) override;
+    double intersects(const ray& r) override;
 
-    virtual color getColor() override;
+    color getColor() override;
 
-    virtual void setColor(const color &col_) override;
+    void setColor(const color &col_) override;
 };
 #endif //RAYTRACING_SPHERE_H

@@ -5,7 +5,8 @@
 #include "OrthographicCamera.h"
 
 ray OrthographicCamera::generateRay(double u, double v) const {
-    return ray(lower_left_corner + u * horizontal + v * vertical - origin, point3(0, 0, 1));
+    auto r = ray(lower_left_corner + u * horizontal + v * vertical - origin, point3(0, 0, 1));
+    return r;
 }
 
 OrthographicCamera::OrthographicCamera(double aspect_ratio, double viewport_height, double viewport_width,

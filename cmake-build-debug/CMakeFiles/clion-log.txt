@@ -1,4 +1,4 @@
-/snap/clion/193/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/193/bin/ninja/linux/ninja -G Ninja -S /home/acsa/Documentos/disciplinas/CG/rayTracing -B /home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2022.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2022.1/bin/ninja/win/ninja.exe" -G Ninja -S C:\Users\70386312419\Documents\GitHub\rayTracing\rayTracing -B C:\Users\70386312419\Documents\GitHub\rayTracing\rayTracing\cmake-build-debug
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/acsa/Documentos/disciplinas/CG/rayTracing/cmake-build-debug
+-- Build files have been written to: C:/Users/70386312419/Documents/GitHub/rayTracing/rayTracing/cmake-build-debug

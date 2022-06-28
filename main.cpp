@@ -8,25 +8,23 @@
 int main(int argc, char *argv[]) {
 
     // Camera
-    std::cout<< "1" << std::endl;
     struct RunningOptions ro = Parser::parse();
-    std::cout<< "2" << std::endl;
     Integrator *integrator;
     if (std::strcmp(ro.integratorType.c_str(), "flat") == 0) {
         integrator = new FlatIntegrator();
-    } else if (std::strcmp(ro.integratorType.c_str(), "dephMath") == 0) {
+    } else if (std::strcmp(ro.integratorType.c_str(), "depth") == 0) {
         integrator = new DepthMapIntegrator();
     } else if (std::strcmp(ro.integratorType.c_str(), "normal") == 0) {
         integrator = new NormalIntegrator();
     } else {
         std::cout << "Integrator type not supported" << std::endl;
-        return -1;
+        integrator = new FlatIntegrator();
     }
     film film(ro);
 
     const auto aspect_ratio = film.getImageWidth() / film.getImageHeight();
 
-    auto viewport_height = 2.0;
+    auto viewport_height = 5.0;
     auto viewport_width = aspect_ratio * viewport_height;
     auto focal_length = -1.0;
 
@@ -38,7 +36,7 @@ int main(int argc, char *argv[]) {
     camera *cam = nullptr;
     if (std::strcmp(ro.cameraType.c_str(), "perspective") == 0) {
         cam = new PerspectiveCamera(aspect_ratio, viewport_height, viewport_width, focal_length);
-    } else if (std::strcmp(ro.cameraType.c_str(), "ortographic") == 0) {
+    } else if (std::strcmp(ro.cameraType.c_str(), "orthographic") == 0) {
         cam = new OrthographicCamera(aspect_ratio, viewport_height, viewport_width, focal_length);
     } else {
         std::cout << "Invalid camera setting. Aborting" << std::endl;

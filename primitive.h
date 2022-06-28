@@ -14,7 +14,7 @@ protected:
     Material material;
     Integrator* integrator;
 public:
-    virtual double intersects(const ray& ray) = 0;
+    virtual double intersects(const ray& ray);
 
     Integrator *getIntegrator() const {
         return integrator;
@@ -39,5 +39,7 @@ public:
         this->material.setCol(col_);
     }
 };
+
+
 
 #endif //RAYTRACING_PRIMITIVE_H

@@ -9,7 +9,7 @@ public:
 
         this->aspect_ratio = aspect_ratio;
         this->viewport_height = viewport_height;
-        this->viewport_width = viewport_width;
+        this->viewport_width = aspect_ratio * viewport_height;
         this->focal_length = focal_length;
 
         origin = point3(0, 0, 0);
@@ -18,7 +18,7 @@ public:
         lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
     }
 
-    camera(const point3 &origin, const point3 &lowerLeftCorner, const vec3 &horizontal, const vec3 &vertical);
+    camera(const point3 &origin, const vec3 &horizontal, const vec3 &vertical);
 
     virtual ray generateRay(double u, double v) const ;
 

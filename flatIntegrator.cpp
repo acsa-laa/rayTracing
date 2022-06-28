@@ -4,15 +4,16 @@
 
 #include "flatIntegrator.h"
 
-color FlatIntegrator::ray_color(const ray &r, const RunningOptions &ro){
+color FlatIntegrator::ray_color(const ray &r, const RunningOptions &ro) {
     for (auto shape: ro.objects) {
-        if (shape->intersects(r) > 0.0) {
-            return shape->getMaterial().getCol() / 255;
+        if (shape->intersects(r) > 0) {
+            return shape->getColor() / 255;
         }
     }
     vec3 unit_direction;
-    if (std::strcmp(ro.cameraType.c_str(), "orthographic") == 0)
+    if (std::strcmp(ro.cameraType.c_str(), "orthographic") == 0){
         unit_direction = unit_vector(r.origin());
+    }
     else
         unit_direction = unit_vector(r.direction());
     auto t = 0.5 * (unit_direction.y() + 1.0);
