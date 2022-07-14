@@ -1,77 +1,36 @@
-//
-// Created by marti on 11/05/2022.
-//
-
 #ifndef RAYTRACING_CAMERA_H
 #define RAYTRACING_CAMERA_H
 
-
-#include "vec3.h"
 #include "film.h"
-
+#include "ray.h"
 class camera {
-private:
-    std::string type;
+public:
+     camera(double aspect_ratio, double viewport_height,double viewport_width,double focal_length ) {
+
+        this->aspect_ratio = aspect_ratio;
+        this->viewport_height = viewport_height;
+        this->viewport_width = aspect_ratio * viewport_height;
+        this->focal_length = focal_length;
+
+        origin = point3(0, 0, 0);
+        horizontal = vec3(viewport_width, 0.0, 0.0);
+        vertical = vec3(0.0, viewport_height, 0.0);
+        lower_left_corner = origin - horizontal/2 - vertical/2 - vec3(0, 0, focal_length);
+    }
+
+    camera(const point3 &origin, const vec3 &horizontal, const vec3 &vertical);
+
+    virtual ray generateRay(double u, double v) const ;
+
+protected:
+    point3 origin;
+    point3 lower_left_corner;
+    vec3 horizontal;
+    vec3 vertical;
+
     double aspect_ratio;
     double viewport_height;
     double viewport_width;
     double focal_length;
-
-    point3 origin;
-    vec3 horizontal;
-    vec3 vertical;
-    vec3 lower_left_corner;
-public:
-    camera(const std::string &type, double aspectRatio, double viewportHeight, double viewportWidth, double focalLength,
-           const point3 &origin, const vec3 &horizontal, const vec3 &vertical, const vec3 &lowerLeftCorner,
-           const film &film);
-
-private:
-
-    film film;
-public:
-
-
-    const class film &getFilm() const;
-
-    void setFilm(const class film &film);
-
-    virtual ~camera();
-
-    void render(color bl, color br, color tl, color tr);
-
-    double getAspectRatio() const;
-
-    void setAspectRatio(double aspectRatio);
-
-    double getViewportHeight() const;
-
-    void setViewportHeight(double viewportHeight);
-
-    double getViewportWidth() const;
-
-    void setViewportWidth(double viewportWidth);
-
-    double getFocalLength() const;
-
-    void setFocalLength(double focalLength);
-
-    const point3 &getOrigin() const;
-
-    void setOrigin(const point3 &origin);
-
-    const vec3 &getHorizontal() const;
-
-    void setHorizontal(const vec3 &horizontal);
-
-    const vec3 &getVertical() const;
-
-    void setVertical(const vec3 &vertical);
-
-    const vec3 &getLowerLeftCorner() const;
-
-    void setLowerLeftCorner(const vec3 &lowerLeftCorner);
 };
-
-
-#endif //RAYTRACING_CAMERA_H
+#endif
