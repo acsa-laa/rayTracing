@@ -6,7 +6,7 @@
 #define RAYTRACING_DEPHMATHINTEGRATOR_H
 
 
-#include "integrator.h"
+#include "Integrator.h"
 #include "parser.h"
 
 class DepthMapIntegrator : public Integrator{

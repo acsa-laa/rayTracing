@@ -8,7 +8,7 @@
 
 
 #include <cstring>
-#include "integrator.h"
+#include "Integrator.h"
 #include "parser.h"
 
 class FlatIntegrator : public Integrator {

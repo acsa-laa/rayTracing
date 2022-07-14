@@ -4,7 +4,7 @@
 
 #ifndef RAYTRACING_NORMALINTEGRATOR_H
 #define RAYTRACING_NORMALINTEGRATOR_H
-#include "integrator.h"
+#include "Integrator.h"
 
 
 class NormalIntegrator : public Integrator{

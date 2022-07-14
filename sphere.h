@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include "primitive.h"
-#include "integrator.h"
+#include "Integrator.h"
 
 class Sphere : public Primitive{
 private:
