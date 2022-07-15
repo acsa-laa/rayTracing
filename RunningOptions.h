@@ -8,6 +8,8 @@
 #include <iostream>
 #include <vector>
 #include "primitive.h"
+#include "light.h"
+#include "ambiente.h"
 
 struct RunningOptions{
     bool  help = false;
@@ -15,6 +17,8 @@ struct RunningOptions{
     int fovy = 1;
     std::vector<int> screen_window{1,1,1,1};
     std::vector<Primitive*> objects;
+    std::vector<std::shared_ptr<Light>>lights;
+    AmbientLight * ambient = nullptr;
     std::string filmType;
     int filmX_res = 0;
     int filmY_res = 0;

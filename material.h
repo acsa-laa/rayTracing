@@ -7,6 +7,8 @@
 
 #include <string>
 #include "vec3.h"
+#include "surfel.h"
+#include "ray.h"
 
 class Material{
 private:
@@ -31,6 +33,8 @@ public:
     void setCol(const color &col_){
         this->col = col_;
     }
+    virtual void scatter(Surfel * isect, ray *r) = 0;
+    virtual vec3 kd() = 0;
 };
 
 #endif //RAYTRACING_MATERIAL_H

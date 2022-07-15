@@ -14,6 +14,8 @@ public:
             : orig(origin), dir(direction)
     {}
 
+    ray(const point3& origin, const vec3& direction, float tmin, float tmax) : orig(origin), dir(direction), tmin{tmin}, tmax{tmax} {/*empty*/}
+
     point3 origin() const  { return orig; }
     vec3 direction() const { return dir; }
 
@@ -24,6 +26,8 @@ public:
 public:
     point3 orig;
     vec3 dir;
+    float tmin;
+    float tmax;
 };
 
 #endif

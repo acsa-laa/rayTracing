@@ -24,10 +24,6 @@ public:
         Primitive::integrator = integrator;
     }
 
-    const Material getMaterial() const {
-        return material;
-    }
-
     void setMaterial(const Material &material) {
         Primitive::material = material;
     }

@@ -7,3 +7,4 @@
 double Primitive::intersects(const ray &ray) {
     return 0;
 }
+

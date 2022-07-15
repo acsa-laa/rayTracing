@@ -1,5 +1,5 @@
-#ifndef VEC3_H
-#define VEC3_H
+#ifndef vec3_H
+#define vec3_H
 
 #include <cmath>
 #include <sstream>
@@ -94,9 +94,45 @@ inline vec3 cross(const vec3 &u, const vec3 &v) {
                 u.e[0] * v.e[1] - u.e[1] * v.e[0]);
 }
 
+inline float cosAnguloVetores(const vec3 &v1, const vec3 &v2){
+    float cim = v1.e[0] * v2.e[0] + v1.e[1] * v2.e[1] + v1.e[2] * v2.e[2];
+    float bai = v1.length() * v2.length();
+    return cim/bai;
+}
+inline float distance(const vec3 &v1, const vec3 &v2){
+    float a = v2.e[0] - v1.e[0];
+    float b = v2.e[1] - v1.e[1];
+    float c = v2.e[2] - v1.e[2];
+    return  sqrt(a*a + b*b + c*c);
+}
+
 inline vec3 unit_vector(vec3 v) {
     return v / v.length();
 }
 
+// Normalização do vetor
+inline vec3 normalize(const vec3 &v)
+{
+    float sq_v1 = v.e[0] * v.e[0];
+    float sq_v2 = v.e[1] * v.e[1];
+    float sq_v3 = v.e[2] * v.e[2];
+
+    float root = sqrt(sq_v1 + sq_v2 + sq_v3);
+
+    float r_v1 = v.e[0] / root;
+    float r_v2 = v.e[1] / root;
+    float r_v3 = v.e[2] / root;
+
+    return vec3(r_v1, r_v2, r_v3);
+}
+
+inline float magnitude(const vec3 &v){
+    float sq_v1 = v.e[0] * v.e[0];
+    float sq_v2 = v.e[1] * v.e[1];
+    float sq_v3 = v.e[2] * v.e[2];
+
+    float root = sqrt(sq_v1 + sq_v2 + sq_v3);
+    return root;
+}
 
 #endif
